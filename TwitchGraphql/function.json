@@ -17,5 +17,5 @@
       "name": "$return"
     }
   ],
-  "scriptFile": "../dist/TwitchGraphql/index.js"
+  "scriptFile": "../dist/TwitchGraphql/src/index.js"
 }

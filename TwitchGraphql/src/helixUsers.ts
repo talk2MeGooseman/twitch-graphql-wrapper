@@ -1,5 +1,5 @@
 import TwitchClient from 'twitch';
-import TwitchCredentials from '../credentials/twitch';
+import TwitchCredentials from '../../credentials/twitch';
 import HelixUser from "twitch/lib/API/Helix/User/HelixUser";
 
 export const byId = async ({ id }: { id: string; }) => {
