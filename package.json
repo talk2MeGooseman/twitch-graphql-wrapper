@@ -9,7 +9,12 @@
     "start": "func start",
     "test": "echo \"No tests yet...\""
   },
-  "dependencies": {},
+  "dependencies": {
+    "apollo-server-azure-functions": "^2.13.1",
+    "graphql": "^15.0.0",
+    "graphql-tools": "^6.0.0",
+    "twitch": "^4.0.10"
+  },
   "devDependencies": {
     "@azure/functions": "^1.0.2-beta2",
     "typescript": "^3.3.3"

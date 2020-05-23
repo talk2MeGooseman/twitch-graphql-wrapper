@@ -1,6 +1,7 @@
 {
   "bindings": [
     {
+      "route": "twitch/graphql",
       "authLevel": "function",
       "type": "httpTrigger",
       "direction": "in",
@@ -13,8 +14,8 @@
     {
       "type": "http",
       "direction": "out",
-      "name": "res"
+      "name": "$return"
     }
   ],
-  "scriptFile": "../dist/TwitchUserInfo/index.js"
+  "scriptFile": "../dist/TwitchGraphql/index.js"
 }
