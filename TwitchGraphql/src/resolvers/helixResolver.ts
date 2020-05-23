@@ -1,7 +1,7 @@
-import * as helixUsers from './helixUsers';
+import * as helixUsers from '../helixUsers';
 import { HelixUser } from 'twitch';
 
-const resolvers = {
+export default {
   Query: {
     helix() {
       return {
@@ -23,5 +23,3 @@ const resolvers = {
     },
   },
 };
-
-export default resolvers;
