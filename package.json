@@ -17,6 +17,11 @@
   },
   "devDependencies": {
     "@azure/functions": "^1.0.2-beta2",
+    "@types/graphql": "^14.5.0",
+    "@types/graphql-depth-limit": "^1.1.2",
+    "graphql-depth-limit": "^1.1.0",
+    "graphql-import": "^1.0.2",
+    "graphql-import-node": "0.0.4",
     "typescript": "^3.3.3"
   }
 }
