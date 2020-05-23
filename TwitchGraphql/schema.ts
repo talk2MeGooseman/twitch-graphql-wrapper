@@ -17,8 +17,8 @@ const typeDefs = gql`
   type Helix {
     userById(id: ID!): HelixUser
     userByName(name: String!): HelixUser
-    usersByIds(ids: [ID!]): [HelixUser]
-    usersByNames(names: [String!]): [HelixUser]
+    usersByIds(ids: [ID!]!): [HelixUser]
+    usersByNames(names: [String!]!): [HelixUser]
   }
 
   type HelixUser {
@@ -30,6 +30,15 @@ const typeDefs = gql`
     profilePictureUrl: String
     offlineImageUrl: String
     views: Int
+    following: [HelixFollow]!
+  }
+
+  type HelixFollow {
+    followDate: String
+    followedUserDisplayName: String
+    followedUserId: ID
+    userDisplayName: String
+    userId: ID
   }
 `
 
