@@ -1,6 +1,6 @@
 export default `
   type HelixUser {
-    broadcasterType: Broadcaster
+    broadcasterType: String
     description: String
     displayName: String
     following: [HelixFollow]!

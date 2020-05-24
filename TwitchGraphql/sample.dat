@@ -1,3 +1,7 @@
 {
-    "userName": "talk2megooseman"
+    "query": "query getUser($name: String!) {\n  helix {\n    userByName(name: $name) {\n      id\n      displayName\n      following {\n        displayName\n      }\n    }\n  }\n}",
+    "variables": {
+        "name": "talk2megooseman"
+    },
+    "operationName": "getUser"
 }
