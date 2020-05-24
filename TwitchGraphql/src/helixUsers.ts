@@ -1,27 +1,20 @@
-import TwitchClient from 'twitch';
-import TwitchCredentials from '../../credentials/twitch';
 import HelixUser from "twitch/lib/API/Helix/User/HelixUser";
-
-export const byId = async ({ id }: { id: string; }) => {
-  const twitchClient = TwitchClient.withClientCredentials(TwitchCredentials.clientId, TwitchCredentials.clientSecret);
-  let user: HelixUser | null = await twitchClient.helix.users.getUserById(id);
+export const byId = async (args: any , context: any) => {
+  let user: HelixUser | null = await context.twitchClient.helix.users.getUserById(args.id);
   return user;
 };
 
-export const byName = async ({ name }: { name: string; }) => {
-  const twitchClient = TwitchClient.withClientCredentials(TwitchCredentials.clientId, TwitchCredentials.clientSecret);
-  let user: HelixUser | null = await twitchClient.helix.users.getUserByName(name);
+export const byName = async (args: any , context: any) => {
+  let user: HelixUser | null = await context.twitchClient.helix.users.getUserByName(args.name);
   return user;
 };
 
-export const byIds = async ({ ids }: { ids: [string]; }) => {
-  const twitchClient = TwitchClient.withClientCredentials(TwitchCredentials.clientId, TwitchCredentials.clientSecret);
-  let users: HelixUser[] | null = await twitchClient.helix.users.getUsersByIds(ids);
+export const byIds = async (args: any , context: any) => {
+  let users: HelixUser[] | null = await context.twitchClient.helix.users.getUsersByIds(args.ids);
   return users
 };
 
-export const byNames = async ({ names }: { names: [string]; }) => {
-  const twitchClient = TwitchClient.withClientCredentials(TwitchCredentials.clientId, TwitchCredentials.clientSecret);
-  let users: HelixUser[] | null = await twitchClient.helix.users.getUsersByNames(names);
+export const byNames = async (args: any , context: any) => {
+  let users: HelixUser[] | null = await context.twitchClient.helix.users.getUsersByNames(args.names);
   return users;
 };
