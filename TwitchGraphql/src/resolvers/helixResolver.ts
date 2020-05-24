@@ -1,5 +1,5 @@
 import * as helixUsers from '../helixUsers';
-import { HelixUser } from 'twitch';
+import { HelixUser, HelixStream } from 'twitch';
 
 export default {
   Query: {
@@ -21,5 +21,13 @@ export default {
         date: follow.followDate,
       }))
     },
+    async currentStream(parent: HelixUser) {
+      return await parent.getStream()
+    },
   },
+  HelixStreamInfo: {
+    async game(parent: HelixStream) {
+      return await parent.getGame()
+    },
+  }
 };
