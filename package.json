@@ -3,15 +3,23 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "tsc",
+    "build": "rm -fr dist && tsc",
     "watch": "tsc -w",
     "prestart": "npm run build",
     "start": "func start",
     "test": "echo \"No tests yet...\""
   },
-  "dependencies": {},
+  "dependencies": {
+    "apollo-server-azure-functions": "^2.13.1",
+    "graphql": "^15.0.0",
+    "graphql-tools": "^6.0.0",
+    "twitch": "^4.0.10"
+  },
   "devDependencies": {
     "@azure/functions": "^1.0.2-beta2",
-    "typescript": "^3.3.3"
+    "@types/graphql": "^14.5.0",
+    "@types/graphql-depth-limit": "^1.1.2",
+    "graphql-depth-limit": "^1.1.0",
+    "typescript": "^3.9"
   }
 }
