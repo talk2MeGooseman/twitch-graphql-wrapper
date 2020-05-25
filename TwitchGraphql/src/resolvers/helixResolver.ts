@@ -5,8 +5,6 @@ export default {
   Query: {
     helix() {
       return {
-        userById: helixUsers.byId,
-        userByName: helixUsers.byName,
         usersByIds: helixUsers.byIds,
         usersByNames: helixUsers.byNames,
       };
