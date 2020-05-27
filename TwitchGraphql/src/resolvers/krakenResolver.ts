@@ -6,7 +6,8 @@ export default {
   Query: {
     kraken() {
       return {
-        channelById: krakenChannel.byId
+        channelById: krakenChannel.byId,
+        team: krakenChannel.team,
       };
     },
   },

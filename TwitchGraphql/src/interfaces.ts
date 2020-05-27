@@ -6,6 +6,11 @@ export interface ArgumentsWithId {
   [propName: string]: any;
 }
 
+export interface ArgumentsWithName {
+  name: string
+  [propName: string]: any;
+}
+
 export interface RequestContext extends Context {
   twitchClient: TwitchClient
 }

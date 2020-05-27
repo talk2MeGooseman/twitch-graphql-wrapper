@@ -1,0 +1,31 @@
+query getChannel($id: ID!) {
+  kraken {
+    channelById(id: $id) {
+      displayName
+      name
+      teams {
+        name
+        displayName
+        members {
+          displayName
+        }
+      }
+    }
+  }
+}
+
+Variables: {
+  "id": "120750024"
+}
+
+query getTeam($name: String!) {
+  kraken {
+    team(name: $name) {
+      name
+      displayName
+      members {
+        displayName
+      }
+    }
+  }
+}
