@@ -1,9 +1,6 @@
 import * as helixUsers from '../helixUsers';
-import TwitchClient, { HelixUser, HelixStream } from 'twitch';
-
-interface Context {
-  twitchClient: TwitchClient
-}
+import { HelixUser, HelixStream } from 'twitch';
+import { RequestContext } from '../interfaces';
 
 export default {
   Query: {
@@ -26,7 +23,7 @@ export default {
     async currentStream(parent: HelixUser) {
       return await parent.getStream()
     },
-    async clips(parent: HelixUser, _args: any, context: Context) {
+    async clips(parent: HelixUser, _args: any, context: RequestContext) {
       const { cursor, data: clips } = await context.twitchClient.helix.clips.getClipsForBroadcaster(parent.id)
       return clips
     }
