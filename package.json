@@ -12,8 +12,7 @@
   "dependencies": {
     "apollo-server-azure-functions": "^2.13.1",
     "graphql": "^15.0.0",
-    "graphql-tools": "^6.0.0",
-    "twitch": "^4.0.10"
+    "graphql-tools": "^6.0.0"
   },
   "devDependencies": {
     "@azure/functions": "^1.0.2-beta2",
