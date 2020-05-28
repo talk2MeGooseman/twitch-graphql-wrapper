@@ -6,9 +6,10 @@ export default `
     displayName: String
     id: ID
     info: String
+    liveMembers: [KrakenStream]!
     logoUrl: String
-    name: String
     members: [KrakenUser]!
+    name: String
     updateDate: String
   }
 `

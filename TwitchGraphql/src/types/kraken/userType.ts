@@ -8,5 +8,6 @@ export default `
     name: String!
     type: String
     updateDate: String!
+    currentStream: KrakenStream
   }
 `
