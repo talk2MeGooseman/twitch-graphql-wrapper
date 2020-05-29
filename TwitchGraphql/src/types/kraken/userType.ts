@@ -1,7 +1,7 @@
 export default `
   type KrakenUser {
     bio: String
-    creationDate: String!
+    creationDate: Date!
     displayName: String!
     id: ID!
     logoUrl: String
