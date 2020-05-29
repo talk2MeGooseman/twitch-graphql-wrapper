@@ -1,13 +1,13 @@
 export default `
   type KrakenUser {
     bio: String
-    creationDate: Date!
+    creationDate: ISODate!
     displayName: String!
     id: ID!
     logoUrl: String
     name: String!
     type: String
-    updateDate: String!
+    updateDate: ISODate!
     currentStream: KrakenStream
   }
 `

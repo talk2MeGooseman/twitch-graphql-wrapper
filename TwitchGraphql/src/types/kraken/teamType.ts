@@ -2,7 +2,7 @@ export default `
   type KrakenTeam {
     background: String
     banner: String
-    creationDate: Date!
+    creationDate: ISODate!
     displayName: String!
     id: ID!
     info: String
@@ -10,6 +10,6 @@ export default `
     logoUrl: String
     members: [KrakenUser]!
     name: String!
-    updateDate: String!
+    updateDate: ISODate!
   }
 `

@@ -6,7 +6,7 @@ export default `
     game: String
     id: ID!
     isPlaylist: Boolean!
-    startDate: String!
+    startDate: ISODate!
     type: String
     videoHeight: Int!
     viewers: Int!

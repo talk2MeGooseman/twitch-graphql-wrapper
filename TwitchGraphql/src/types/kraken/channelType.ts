@@ -2,7 +2,7 @@ export default `
   type KrakenChannel {
     broadcasterLanguage: String!
     broadcasterType: String
-    creationDate: String
+    creationDate: ISODate!
     description: String
     displayName: String
     followers: Int

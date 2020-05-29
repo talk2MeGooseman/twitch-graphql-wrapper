@@ -1,5 +1,5 @@
 export default `
-  scalar Date
+  scalar ISODate
 
   type Query {
     helix: Helix
