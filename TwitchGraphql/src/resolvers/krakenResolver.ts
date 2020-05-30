@@ -1,5 +1,5 @@
 import * as krakenChannel from '../krakenChannel';
-import TwitchClient, { HelixUser, HelixStream, Channel, User, Stream } from 'twitch';
+import { Channel, User, Stream } from 'twitch';
 import Team from 'twitch/lib/API/Kraken/Team/Team';
 import { RequestContext } from '../interfaces';
 import { chunk, flatten } from 'lodash'

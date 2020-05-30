@@ -8,5 +8,7 @@
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "noUnusedLocals": true,
+    "importsNotUsedAsValues": "remove"
   }
 }
