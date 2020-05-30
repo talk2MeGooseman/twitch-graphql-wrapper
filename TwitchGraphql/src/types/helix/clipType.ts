@@ -1,7 +1,7 @@
 export default `
   type HelixClip {
     game: HelixGame
-    creationDate: String!
+    creationDate: ISODate!
     embedUrl: String!
     id: ID!
     language: String!

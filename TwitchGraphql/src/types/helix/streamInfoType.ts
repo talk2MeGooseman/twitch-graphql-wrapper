@@ -3,7 +3,7 @@ export default `
     game: HelixGame
     id: ID!
     language: String!
-    startDate: String!
+    startDate: ISODate!
     thumbnailUrl: String!
     title: String!
     type: String!
