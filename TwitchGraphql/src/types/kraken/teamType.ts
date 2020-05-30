@@ -6,7 +6,7 @@ export default `
     displayName: String!
     id: ID!
     info: String
-    liveMembers: [KrakenStream]!
+    liveStreams: [KrakenStream]!
     logoUrl: String
     members: [KrakenUser]!
     name: String!
