@@ -9,7 +9,7 @@ export default `
     offlineImageUrl: String
     profilePictureUrl: String
     views: Int
-    currentStream: HelixStreamInfo
+    currentStream: HelixStream
     clips: [HelixClip]
   }
 `

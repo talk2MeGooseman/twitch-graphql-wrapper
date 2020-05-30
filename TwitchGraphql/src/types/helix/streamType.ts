@@ -1,5 +1,5 @@
 export default `
-  type HelixStreamInfo {
+  type HelixStream {
     game: HelixGame
     id: ID!
     language: String!

@@ -1,4 +1,3 @@
-import Team from 'twitch/lib/API/Kraken/Team/Team';
 import { Channel } from 'twitch/lib';
 import { ArgumentsWithId, RequestContext, ArgumentsWithName } from './interfaces';
 

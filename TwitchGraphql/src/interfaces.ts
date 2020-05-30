@@ -11,6 +11,16 @@ export interface ArgumentsWithName {
   [propName: string]: any;
 }
 
+export interface ArgumentsWithIds {
+  ids: [string]
+  [propName: string]: any;
+}
+
+export interface ArgumentsWithNames {
+  names: [string]
+  [propName: string]: any;
+}
+
 export interface RequestContext extends Context {
   twitchClient: TwitchClient
 }
