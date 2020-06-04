@@ -7,7 +7,8 @@ export default `
     thumbnailUrl: String!
     title: String!
     type: String!
-    userId: ID!
+    userDisplayName: String!
+    user: HelixUser!
     viewers: Int!
   }
 `

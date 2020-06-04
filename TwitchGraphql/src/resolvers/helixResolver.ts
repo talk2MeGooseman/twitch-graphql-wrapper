@@ -46,5 +46,8 @@ export default {
     async game(parent: HelixStream) {
       return await parent.getGame()
     },
+    async user(parent: HelixStream) {
+      return await parent.getUser()
+    },
   }
 };
