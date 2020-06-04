@@ -1,6 +1,6 @@
 import * as helixUsers from '../helixUsers';
 import { HelixUser, HelixStream, HelixStreamType } from 'twitch';
-import { RequestContext, ArgumentsWithIds, ArgumentsWithNames } from '../interfaces';
+import { RequestContext, ArgumentsWithIds, ArgumentsWithNames, ArgumentsWithId, ArgumentsWithName } from '../interfaces';
 
 export default {
   Query: {
@@ -21,7 +21,7 @@ export default {
           );
 
           return await streamsPaginator.getAll()
-        }
+        },
       };
     },
   },
@@ -40,6 +40,15 @@ export default {
     async clips(parent: HelixUser, _args: any, context: RequestContext) {
       const { data: clips } = await context.twitchClient.helix.clips.getClipsForBroadcaster(parent.id)
       return clips
+    },
+    async isFollowingUserId(parent: HelixUser, args: ArgumentsWithId, context: RequestContext) {
+      if(args.userId.length === 0) return false;
+      return await parent.follows(args.userId)
+    },
+    async isFollowingUserName(parent: HelixUser, args: ArgumentsWithName, context: RequestContext) {
+      if(args.userName.length === 0) return false;
+      const user = await context.twitchClient.helix.users.getUserByName(args.userName)
+      return await parent.follows(user!.id)
     }
   },
   HelixStream: {
