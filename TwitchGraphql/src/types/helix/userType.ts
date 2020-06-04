@@ -1,13 +1,19 @@
 export default `
   type HelixUser {
-    broadcasterType: Broadcaster
+    broadcasterType: String
+    clips: [HelixClip]
+    currentStream: HelixStream
     description: String
     displayName: String
-    following: [HelixFollow]!
     id: ID
+    isFollowingUserId(userId: ID!): Boolean
+    isFollowingUserName(userName: String!): Boolean
+    "Retrieves the latest broadcasters the user has followed"
+    latestFollowing: [HelixFollow]!
     name: String
     offlineImageUrl: String
     profilePictureUrl: String
     views: Int
+    videos: [HelixVideo]!
   }
 `

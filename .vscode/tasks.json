@@ -17,11 +17,6 @@
     },
     {
       "type": "shell",
-      "label": "npm install",
-      "command": "npm install"
-    },
-    {
-      "type": "shell",
       "label": "npm prune",
       "command": "npm prune --production",
       "dependsOn": "npm build",

@@ -1,6 +1,6 @@
 export default `
   type HelixFollow {
-    date: String
+    date: ISODate
     displayName: String
     id: ID
   }

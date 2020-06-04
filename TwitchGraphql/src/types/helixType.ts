@@ -1,9 +1,9 @@
 const typeDefs = `
   type Helix {
-    userById(id: ID!): HelixUser
-    userByName(name: String!): HelixUser
     usersByIds(ids: [ID!]!): [HelixUser]
     usersByNames(names: [String!]!): [HelixUser]
+    streamsByIds(ids: [ID!]!): [HelixStream]!
+    streamsByNames(names: [String]!): [HelixStream]!
   }
 `
 
