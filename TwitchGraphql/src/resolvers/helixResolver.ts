@@ -49,6 +49,9 @@ export default {
       if(args.userName.length === 0) return false;
       const user = await context.twitchClient.helix.users.getUserByName(args.userName)
       return await parent.follows(user!.id)
+    },
+    async videos(parent: HelixUser, args: ArgumentsWithName, context: RequestContext) {
+      return await context.twitchClient.helix.videos.getVideosByUserPaginated(parent).getAll()
     }
   },
   HelixStream: {

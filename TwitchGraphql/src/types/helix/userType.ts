@@ -14,5 +14,6 @@ export default `
     offlineImageUrl: String
     profilePictureUrl: String
     views: Int
+    videos: [HelixVideo]!
   }
 `
