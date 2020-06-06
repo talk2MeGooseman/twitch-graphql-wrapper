@@ -1,8 +1,8 @@
 {
   "bindings": [
     {
-      "route": "twitch/graphql",
-      "authLevel": "anonymous",
+      "route": "graphql/twitch",
+      "authLevel": "function",
       "type": "httpTrigger",
       "direction": "in",
       "name": "req",
