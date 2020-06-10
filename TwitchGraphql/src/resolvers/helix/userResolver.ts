@@ -30,8 +30,5 @@ export default {
     async videos(parent: HelixUser, args: ArgumentsWithName, context: RequestContext) {
       return await context.twitchClient.helix.videos.getVideosByUserPaginated(parent).getAll()
     },
-    async subscribers(parent: HelixUser, args: ArgumentsWithName, context: RequestContext) {
-      return await context.twitchClient.helix.subscriptions.getSubscriptionsPaginated(parent).getAll();
-    },
   },
 }
