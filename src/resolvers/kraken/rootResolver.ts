@@ -1,15 +1,18 @@
-import * as krakenChannel from '../krakenChannel';
 import { Channel, User, Stream } from 'twitch';
 import Team from 'twitch/lib/API/Kraken/Team/Team';
-import { RequestContext } from '../interfaces';
+import { RequestContext, ArgumentsWithName, ArgumentsWithId } from '../../interfaces';
 import { chunk, flatten } from 'lodash'
 
 export default {
   Query: {
     kraken() {
       return {
-        channelById: krakenChannel.byId,
-        team: krakenChannel.team,
+        async channelById ({ id }: ArgumentsWithId, context: RequestContext): Promise<Channel> {
+          return await context.twitchClient.kraken.channels.getChannel(id);
+        },
+        async team ({ name }: ArgumentsWithName, context: RequestContext) {
+          return await context.twitchClient.kraken.teams.getTeamByName(name);
+        },
       };
     },
   },

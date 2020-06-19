@@ -1,13 +1,18 @@
-import * as helixUsers from '../helixUsers';
-import { HelixStreamType } from 'twitch';
-import { RequestContext, ArgumentsWithIds, ArgumentsWithNames } from '../interfaces';
+import { HelixStreamType, HelixUser } from 'twitch';
+import { RequestContext, ArgumentsWithIds, ArgumentsWithNames, ArgumentsWithId } from '../../interfaces';
 
 export default {
   Query: {
     helix() {
       return {
-        usersByIds: helixUsers.byIds,
-        usersByNames: helixUsers.byNames,
+        async usersByIds (args: ArgumentsWithId , context: RequestContext) {
+          let users: HelixUser[] | null = await context.twitchClient.helix.users.getUsersByIds(args.ids);
+          return users
+        },
+        async usersByNames (args: ArgumentsWithId , context: RequestContext) {
+          let users: HelixUser[] | null = await context.twitchClient.helix.users.getUsersByNames(args.names);
+          return users;
+        },
         async streamsByIds(args: ArgumentsWithIds, context: RequestContext) {
           const streamsPaginator = context.twitchClient.helix.streams.getStreamsPaginated(
             { userId: args.ids, type: HelixStreamType.Live }

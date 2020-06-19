@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "rm -fr dist && tsc",
-    "watch": "tsc -w",
+    "clean": "rm -fr dist",
+    "build": "npm run clean && tsc --skipLibCheck",
+    "watch": "tsc -w --skipLibCheck",
     "prestart": "npm run build",
     "start": "func start",
     "test": "echo \"No tests yet...\""
@@ -12,6 +13,7 @@
   "dependencies": {
     "@d-fischer/logger": "^1.0.3",
     "apollo-server-azure-functions": "^2.13.1",
+    "apollo-server-express": "^2.15.0",
     "graphql": "^15.0.0",
     "graphql-tools": "^6.0.0",
     "lodash": "^4.17.15",
