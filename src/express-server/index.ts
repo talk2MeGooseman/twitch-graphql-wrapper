@@ -4,7 +4,7 @@ import depthLimit from 'graphql-depth-limit'
 import context from "../context";
 
 export const createServer = (overrideContext = context) => {
-    new ApolloServer({
+  new ApolloServer({
     schema,
     validationRules: [depthLimit(7)],
     context: overrideContext,
