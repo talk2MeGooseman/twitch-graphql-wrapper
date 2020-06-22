@@ -2,7 +2,7 @@
   "name": "twitch-graphql-wrapper",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/src/express-server/index.js",
+  "main": "./dist/express-server/index.js",
   "scripts": {
     "clean": "rm -fr dist",
     "build": "npm run clean && tsc --skipLibCheck",
@@ -16,17 +16,17 @@
     "apollo-server-azure-functions": "^2.13.1",
     "apollo-server-express": "^2.15.0",
     "dotenv": "^8.2.0",
-    "graphql": "^15.0.0",
     "graphql-depth-limit": "^1.1.0",
     "graphql-tools": "^6.0.0",
+    "graphql": "^15.0.0",
     "lodash": "^4.17.15",
     "twitch": "^4.1.0-pre.6"
   },
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.2",
     "@azure/functions": "^1.0.2-beta2",
-    "@types/graphql": "^14.5.0",
     "@types/graphql-depth-limit": "^1.1.2",
+    "@types/graphql": "^14.5.0",
     "@types/lodash": "^4.14.153",
     "typescript": "^3.9"
   }
