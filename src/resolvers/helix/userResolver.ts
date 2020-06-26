@@ -27,6 +27,9 @@ export default {
       const user = await context.twitchClient.helix.users.getUserByName(args.userName)
       return await parent.follows(user!.id)
     },
+    async subscribers(parent: HelixUser, _args: any, context: RequestContext) {
+      return await context.twitchClient.helix.subscriptions.getSubscriptionsPaginated(parent.id).getAll()
+    },
     async videos(parent: HelixUser, args: ArgumentsWithName, context: RequestContext) {
       return await context.twitchClient.helix.videos.getVideosByUserPaginated(parent).getAll()
     },
