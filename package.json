@@ -1,10 +1,12 @@
 {
-  "name": "code",
-  "version": "1.0.0",
+  "name": "twitch-graphql-wrapper",
+  "version": "0.0.1",
   "description": "",
+  "main": "./dist/express-server/index.js",
   "scripts": {
-    "build": "rm -fr dist && tsc",
-    "watch": "tsc -w",
+    "clean": "rm -fr dist",
+    "build": "npm run clean && tsc --skipLibCheck",
+    "watch": "tsc -w --skipLibCheck",
     "prestart": "npm run build",
     "start": "func start",
     "test": "echo \"No tests yet...\""
@@ -12,17 +14,20 @@
   "dependencies": {
     "@d-fischer/logger": "^1.0.3",
     "apollo-server-azure-functions": "^2.13.1",
-    "graphql": "^15.0.0",
+    "apollo-server-express": "^2.15.0",
+    "dotenv": "^8.2.0",
+    "graphql-depth-limit": "^1.1.0",
     "graphql-tools": "^6.0.0",
+    "graphql": "^15.0.0",
     "lodash": "^4.17.15",
     "twitch": "^4.1.0-pre.6"
   },
   "devDependencies": {
+    "@arkweid/lefthook": "^0.7.2",
     "@azure/functions": "^1.0.2-beta2",
-    "@types/graphql": "^14.5.0",
     "@types/graphql-depth-limit": "^1.1.2",
+    "@types/graphql": "^14.5.0",
     "@types/lodash": "^4.14.153",
-    "graphql-depth-limit": "^1.1.0",
     "typescript": "^3.9"
   }
 }

@@ -13,7 +13,8 @@ export default `
     name: String
     offlineImageUrl: String
     profilePictureUrl: String
-    views: Int
+    subscribers: [HelixSubscription]
     videos: [HelixVideo]!
+    views: Int
   }
 `

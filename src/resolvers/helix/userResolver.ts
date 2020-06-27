@@ -1,30 +1,7 @@
-import * as helixUsers from '../helixUsers';
-import { HelixUser, HelixStream, HelixStreamType } from 'twitch';
-import { RequestContext, ArgumentsWithIds, ArgumentsWithNames, ArgumentsWithId, ArgumentsWithName } from '../interfaces';
+import { HelixUser } from "twitch"
+import { RequestContext, ArgumentsWithId, ArgumentsWithName } from '../../interfaces';
 
 export default {
-  Query: {
-    helix() {
-      return {
-        usersByIds: helixUsers.byIds,
-        usersByNames: helixUsers.byNames,
-        async streamsByIds(args: ArgumentsWithIds, context: RequestContext) {
-          const streamsPaginator = context.twitchClient.helix.streams.getStreamsPaginated(
-            { userId: args.ids, type: HelixStreamType.Live }
-          );
-
-          return await streamsPaginator.getAll()
-        },
-        async streamsByNames(args: ArgumentsWithNames, context: RequestContext) {
-          const streamsPaginator = context.twitchClient.helix.streams.getStreamsPaginated(
-            { userName: args.names, type: HelixStreamType.Live }
-          );
-
-          return await streamsPaginator.getAll()
-        },
-      };
-    },
-  },
   HelixUser: {
     async latestFollowing(parent: HelixUser) {
       const { data } = await parent.getFollows()
@@ -50,16 +27,11 @@ export default {
       const user = await context.twitchClient.helix.users.getUserByName(args.userName)
       return await parent.follows(user!.id)
     },
+    async subscribers(parent: HelixUser, _args: any, context: RequestContext) {
+      return await context.twitchClient.helix.subscriptions.getSubscriptionsPaginated(parent.id).getAll()
+    },
     async videos(parent: HelixUser, args: ArgumentsWithName, context: RequestContext) {
       return await context.twitchClient.helix.videos.getVideosByUserPaginated(parent).getAll()
-    }
+    },
   },
-  HelixStream: {
-    async game(parent: HelixStream) {
-      return await parent.getGame()
-    },
-    async user(parent: HelixStream) {
-      return await parent.getUser()
-    },
-  }
-};
+}

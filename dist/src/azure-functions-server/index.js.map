@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/azure-functions-server/index.ts"],"names":[],"mappings":";;;;;AAAA,iFAA4D;AAC5D,uDAA8B;AAC9B,8EAA4C;AAC5C,yDAAiC;AAEjC,MAAM,MAAM,GAAG,IAAI,4CAAY,CAAC;IAC9B,MAAM,EAAN,gBAAM;IACN,eAAe,EAAE,CAAC,6BAAU,CAAC,CAAC,CAAC,CAAC;IAChC,OAAO,EAAP,iBAAO;CACR,CAAC,CAAC;AAEH,OAAO,CAAC,cAAc,GAAG,MAAM,CAAC,aAAa,EAAE,CAAA"}
