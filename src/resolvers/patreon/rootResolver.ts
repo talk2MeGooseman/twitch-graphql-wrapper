@@ -6,6 +6,13 @@ export default {
     patreon() {
       return {
         async campaigns(_: ArgumentsWithId, context: RequestContext): Promise<any> {
+          const url = jsonApiURL(`/current_user`)
+          const result = await context.patreonClient(url, { fields: {
+            pledge: []
+          }})
+          const campaigns = result.store.findAll('campaign')
+          console.log(campaigns)
+          return campaigns
         },
         async me(_: ArgumentsWithId, context: RequestContext): Promise<any> {
           const url = jsonApiURL(`/current_user`)

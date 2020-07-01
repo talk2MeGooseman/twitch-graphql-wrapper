@@ -1,6 +1,7 @@
 const typeDefs = `
   type Patreon {
-    me: PatreonProfile
+    campaigns: [PatreonCampaign]
+    me: PatreonUser
   }
 `
 
