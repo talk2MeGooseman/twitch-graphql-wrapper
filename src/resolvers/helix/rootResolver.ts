@@ -24,7 +24,6 @@ export default {
           const streamsPaginator = context.twitchClient.helix.streams.getStreamsPaginated(
             { userName: args.names, type: HelixStreamType.Live }
           );
-
           return await streamsPaginator.getAll()
         },
       };

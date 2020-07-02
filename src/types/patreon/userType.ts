@@ -4,7 +4,6 @@ export default `
     campaign: PatreonCampaign
     firstName: String
     fullName: String
-    id: String
     imageUrl: String
     lastName: String
     likeCount: Int
