@@ -1,7 +1,7 @@
-import TwitchClient, { AccessToken } from 'twitch';
-import TwitchCredentials from '../credentials/twitch';
-import { patreon as patreonAPI } from 'patreon'
-import { IContext } from './interfaces';
+import TwitchClient, { AccessToken } from 'twitch'
+import TwitchCredentials from '../credentials/twitch'
+import { IContext } from './interfaces'
+import axios from 'axios';
 
 export default ({ accessToken, refreshToken, patreonCreds } : { accessToken?: string, refreshToken?: string, patreonCreds?: { accessToken: string, refreshToken: string } }) => {
   const context: IContext = {};
@@ -29,7 +29,11 @@ export default ({ accessToken, refreshToken, patreonCreds } : { accessToken?: st
   }
 
   if (patreonCreds?.accessToken && patreonCreds?.refreshToken) {
-    context['patreonClient'] = patreonAPI(patreonCreds.accessToken)
+    context['patreonClient'] = axios.create({
+      baseURL: 'https://www.patreon.com/api/oauth2/v2/',
+      timeout: 1000,
+      headers: { 'Authorization': `Bearer ${patreonCreds.accessToken}` },
+    });
   }
 
   return context
