@@ -9,6 +9,9 @@ const server = new ApolloServer({
   validationRules: [depthLimit(7)],
   context,
   fieldResolver: snakeCaseFieldResolver,
+  engine: {
+    reportSchema: true,
+  },
 });
 
 exports.graphqlHandler = server.createHandler()

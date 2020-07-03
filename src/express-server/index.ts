@@ -10,8 +10,5 @@ export function createServer(context: any) {
     validationRules: [depthLimit(7)],
     context: context,
     fieldResolver: snakeCaseFieldResolver,
-    engine: {    
-      graphVariant: "current",
-    },
   })
 }
