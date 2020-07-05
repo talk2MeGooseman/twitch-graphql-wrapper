@@ -28,3 +28,17 @@ export interface ArgumentsWithNames {
 export interface RequestContext extends IContext {
   twitchClient: TwitchClient
 }
+
+export interface IInclude {
+  attributes: any,
+  id: string,
+  type: string
+}
+
+export interface IPatreonUser {
+  about: string
+  fullName: string
+  id: string
+  imageUrl: string
+  url: string
+}

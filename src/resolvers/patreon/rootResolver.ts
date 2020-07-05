@@ -1,4 +1,4 @@
-import { RequestContext, ArgumentsWithId } from '../../interfaces'
+import { RequestContext, ArgumentsWithId, IPatreonUser, IInclude } from '../../interfaces'
 
 export default {
   Query: {
@@ -7,13 +7,29 @@ export default {
         async patrons(_: ArgumentsWithId, context: RequestContext): Promise<any> {
           try {
             const result = await context.patreonClient.get(
-              'campaigns/4776554/members?include=currently_entitled_tiers,address&fields%5Bmember%5D=full_name,is_follower,last_charge_date,last_charge_status,lifetime_support_cents,currently_entitled_amount_cents,patron_status&fields%5Btier%5D=amount_cents,created_at,description,discord_role_ids,edited_at,patron_count,published,published_at,requires_shipping,title,url',
+              'campaigns/4776554/members?include=user,currently_entitled_tiers,address&fields%5Bmember%5D=full_name,is_follower,last_charge_date,last_charge_status,lifetime_support_cents,currently_entitled_amount_cents,patron_status&fields%5Btier%5D=amount_cents,created_at,description,patron_count,title,url&fields%5Buser%5D=full_name,about,image_url,url',
             );
 
-            const { data: members }= result.data;
+            const { data: members, included }= result.data
+
             return members.map((member: any) => {
+              const userId = member.relationships.user.data.id
+
+              const user = included.reduce((accum: IPatreonUser, include: IInclude) => {
+                if (include.type === 'user' && include.id === userId) {
+                  return {
+                    id: include.id,
+                    ...include.attributes,
+                  }
+                }
+                console.log(accum)
+                return accum
+              }, undefined)
+
               return {
+                id: member.id,
                 ...member.attributes,
+                user,
               }
             })
           } catch (error) {
@@ -29,7 +45,7 @@ export default {
             const { data: user }= result.data
 
             return {
-              ...user.attributes
+              ...user.attributes,
             }
           } catch (error) {
             throw new Error(error.message)

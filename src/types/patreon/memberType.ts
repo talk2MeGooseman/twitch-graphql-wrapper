@@ -3,11 +3,11 @@ export default `
     "One of active_patron, declined_patron, former_patron. A null value indicates the member has never pledged. Can be null."
     patronStatus:	String
 
+    "The ID of the member"
+    id: ID!
+
     "The user is not a pledging patron but has subscribed to updates about public posts."
     isFollower: Boolean
-
-    "Full name of the member user."
-    fullName: String
 
     "(UTC ISO format)	Datetime of beginning of most recent pledge chainfrom this member to the campaign. Pledge updates do not change this value. Can be null."
     pledgeRelationshipStart: String
@@ -20,5 +20,8 @@ export default `
 
     " The creator's notes on the member."
     note: String
+
+    "The Patreon User"
+    user: PatreonUser
   }
 `;

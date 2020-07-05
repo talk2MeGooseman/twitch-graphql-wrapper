@@ -1,15 +1,17 @@
 export default `
   type PatreonUser {
+    "The user's about text, which appears on their profile."
     about: String
-    campaign: PatreonCampaign
-    firstName: String
+
+    "Combined first and last name."
     fullName: String
+
+    id: ID
+
+    "The user's profile picture URL, scaled to width 400px."
     imageUrl: String
-    lastName: String
-    likeCount: Int
-    pledges: [PatreonPledge]
-    thumbUrl: String
+
+    "URL of this user's creator or patron profile."
     url: String
-    vanity: String
   }
 `
