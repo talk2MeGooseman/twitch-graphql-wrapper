@@ -22,7 +22,7 @@ export default {
                     ...include.attributes,
                   }
                 }
-                console.log(accum)
+
                 return accum
               }, undefined)
 
