@@ -3,7 +3,6 @@ export default `
 
   type Query {
     helix: Helix
-    kraken: Kraken
     patreon: Patreon
   }
-`
+`;
