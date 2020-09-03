@@ -14,16 +14,9 @@ exports.default = {
     Query: {
         helix() {
             return {
-                usersByIds(args, context) {
+                me(_args, context) {
                     return __awaiter(this, void 0, void 0, function* () {
-                        let users = yield context.twitchClient.helix.users.getUsersByIds(args.ids);
-                        return users;
-                    });
-                },
-                usersByNames(args, context) {
-                    return __awaiter(this, void 0, void 0, function* () {
-                        let users = yield context.twitchClient.helix.users.getUsersByNames(args.names);
-                        return users;
+                        return yield context.twitchClient.helix.users.getMe();
                     });
                 },
                 streamsByIds(args, context) {
@@ -36,6 +29,18 @@ exports.default = {
                     return __awaiter(this, void 0, void 0, function* () {
                         const streamsPaginator = context.twitchClient.helix.streams.getStreamsPaginated({ userName: args.names, type: twitch_1.HelixStreamType.Live });
                         return yield streamsPaginator.getAll();
+                    });
+                },
+                usersByIds(args, context) {
+                    return __awaiter(this, void 0, void 0, function* () {
+                        let users = yield context.twitchClient.helix.users.getUsersByIds(args.ids);
+                        return users;
+                    });
+                },
+                usersByNames(args, context) {
+                    return __awaiter(this, void 0, void 0, function* () {
+                        let users = yield context.twitchClient.helix.users.getUsersByNames(args.names);
+                        return users;
                     });
                 },
             };

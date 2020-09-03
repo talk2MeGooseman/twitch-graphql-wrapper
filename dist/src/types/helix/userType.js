@@ -15,6 +15,7 @@ exports.default = `
     name: String
     offlineImageUrl: String
     profilePictureUrl: String
+    subscribers: [HelixSubscription]
     videos: [HelixVideo]!
     views: Int
   }

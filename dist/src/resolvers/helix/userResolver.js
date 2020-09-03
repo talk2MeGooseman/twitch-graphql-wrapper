@@ -47,6 +47,11 @@ exports.default = {
                 return yield parent.follows(user.id);
             });
         },
+        subscribers(parent, _args, context) {
+            return __awaiter(this, void 0, void 0, function* () {
+                return yield context.twitchClient.helix.subscriptions.getSubscriptionsPaginated(parent.id).getAll();
+            });
+        },
         videos(parent, args, context) {
             return __awaiter(this, void 0, void 0, function* () {
                 return yield context.twitchClient.helix.videos.getVideosByUserPaginated(parent).getAll();
