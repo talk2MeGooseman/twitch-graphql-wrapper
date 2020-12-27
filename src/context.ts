@@ -1,9 +1,23 @@
-import TwitchClient, { AccessToken } from 'twitch'
+import { ApiClient as TwitchClient } from 'twitch';
+import { AccessToken, RefreshableAuthProvider, StaticAuthProvider } from 'twitch-auth';
 import TwitchCredentials from '../credentials/twitch'
 import { IContext } from './interfaces'
 import axios from 'axios';
 
-export default ({ accessToken, refreshToken, patreonCreds } : { accessToken?: string, refreshToken?: string, patreonCreds?: { accessToken: string, refreshToken: string } }) => {
+interface GqlContext {
+  accessToken?: string,
+  refreshToken?: string,
+  twitchCreds?: {
+    onTokenRefresh?: (credentials: AccessToken) => Promise<void>,
+  },
+  patreonCreds?: {
+    accessToken: string,
+    refreshToken: string
+    onTokenRefresh?: (credentials: AccessToken) => Promise<void>,
+  }
+}
+
+export default ({ accessToken, refreshToken, twitchCreds, patreonCreds } : GqlContext) => {
   const context: IContext = {};
 
   if (!TwitchCredentials.clientId || !TwitchCredentials.clientSecret) {
@@ -12,18 +26,19 @@ export default ({ accessToken, refreshToken, patreonCreds } : { accessToken?: st
   }
 
   if (accessToken && refreshToken) {
-    context['twitchClient'] = TwitchClient.withCredentials(
-      TwitchCredentials.clientId,
-      accessToken,
-      undefined,
+    const authProvider = new RefreshableAuthProvider(
+      new StaticAuthProvider(TwitchCredentials.clientId, accessToken),
       {
-        clientSecret: TwitchCredentials.clientSecret,
-        refreshToken: refreshToken,
-        onRefresh: (token: AccessToken) => {
-          // do things with the new token data, e.g. save them in your database
-        },
+          clientSecret: TwitchCredentials.clientSecret,
+          refreshToken,
+          onRefresh: (credentials) => {
+            if (twitchCreds?.onTokenRefresh) {
+              twitchCreds.onTokenRefresh(credentials)
+            }
+          }
       }
     );
+    context['twitchClient'] = new TwitchClient({ authProvider })
   } else {
     context['twitchClient'] = TwitchClient.withClientCredentials(TwitchCredentials.clientId, TwitchCredentials.clientSecret)
   }
